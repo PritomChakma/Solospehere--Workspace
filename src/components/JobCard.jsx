@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
-  const { title, category, deadLine, description, min_price, max_price } = job;
+  const { title, category, deadLine, description, min_price, max_price } = job || {}
   return (
     <Link
       to={`/job/1`}
@@ -22,7 +22,7 @@ const JobCard = ({ job }) => {
         <h1 className="mt-2 text-lg font-semibold text-gray-800 ">{title}</h1>
 
         <p className="mt-2 text-sm text-gray-600 ">
-          {description.substring(0, 70)}...
+          {description?.substring(0, 70)}...
         </p>
         <p className="mt-2 text-sm font-bold text-gray-600 ">
           Range: ${min_price} - ${max_price}
